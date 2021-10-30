@@ -37,5 +37,39 @@ class Grammar{
             }
         }
     }
+
+    cartesianProduct(arr1, arr2){
+        const out = []
+
+        for(let i = 0; i < arr1.length; i++){
+
+           for(let j = 0; j < arr2.length; j++){
+              out.push(
+                 [arr1[i]].concat(arr2[j])
+              )
+           }
+        }
+
+        return out
+    }
+
+    calcVarsThatGenerate(productions){
+        let outputVars = []
+        
+        productions.forEach(production => {
+            
+            this.grammarVariables.forEach(variable => {
+                var varGeneratesProduction = this.grammar.variable.includes(production)
+
+                if(varGeneratesProduction){
+                    outputVars.push(variable)
+                }
+
+            });
+
+        });
+
+        return outputVars
+    }
     
 }
