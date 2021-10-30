@@ -13,4 +13,6 @@ export function parseGrammarInput(grammarInput){
     });
     
     console.log(JSON.stringify(productions, null, '\t'));
+
+    return productions;
 }

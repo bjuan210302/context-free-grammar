@@ -19,7 +19,8 @@ export default createStore({
     },
 
     test(state){
-      parseGrammarInput(state.stringGrammar)
+      const grammar = parseGrammarInput(state.stringGrammar)
+      
     }
   },
   actions: {
