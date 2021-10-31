@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import { parseGrammarInput } from '../code/Parser.js'
+import { Grammar } from '../code/Grammar.js'
 
 export default createStore({
   state: {
@@ -19,8 +20,10 @@ export default createStore({
     },
 
     test(state){
-      const grammar = parseGrammarInput(state.stringGrammar)
-      
+      const parsedGrammar = parseGrammarInput(state.stringGrammar)
+      const grammar = new Grammar(parsedGrammar)
+
+      grammar.generates(state.testString)
     }
   },
   actions: {
