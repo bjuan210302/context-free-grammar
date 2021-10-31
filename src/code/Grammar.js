@@ -5,6 +5,10 @@ export class Grammar{
         this.outputMatrix = []
     }
 
+    getOutputMatrix(){
+        return this.outputMatrix
+    }
+
     generates(testString){
         this.outputMatrix = Array(testString.length).fill().map(()=>Array(testString.length).fill())
         // console.log('first row');
@@ -13,10 +17,10 @@ export class Grammar{
 
         // console.log('CYK Algo');
         this.CYKAlgorithm(testString)
-        console.log('OUTPUT');
-        console.log(JSON.stringify(this.outputMatrix, null, '\t'));
+        // console.log('OUTPUT');
+        // console.log(JSON.stringify(this.outputMatrix, null, '\t'));
 
-        
+        return [true, this.outputMatrix]
     }
 
     calcFirstColumn(testString){

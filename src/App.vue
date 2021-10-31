@@ -10,18 +10,29 @@ B -> BA|a</textarea>
 
       <button type="submit" class="btn btn-primary col-12" @click="test">Test</button>
 
+      <div class="row" ref="xdxd"></div>
+
     </div>
   </div>
   
+  <div class="row">
+    <div class="col-">
+      
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CYKTable from './components/CYKTable.vue'
+import { createApp } from 'vue'
+import { defineComponent } from 'vue'
+import store from './store'
 
 export default {
   name: 'App',
+
   components: {
-    HelloWorld
+    CYKTable
   },
 
   methods: {
@@ -30,9 +41,36 @@ export default {
       this.$store.commit('setStringGrammar', this.$refs.stringGrammar.value)
       this.$store.commit('setTestString', this.$refs.testString.value)
       this.$store.commit('test')
+
+      const outputs = this.$store.getters.outputs
+
+      this.mountTable(this.$refs.testString.value, outputs[1])
+    },
+
+    mountTable(strTest, outputMatrixParam){
+      var componentInstance
+      var componentDefinition = defineComponent({
+        extends: defineComponent(CYKTable),
+
+        data: () => ({
+          testString: strTest,
+          outputMatrix: outputMatrixParam
+        }),
+
+        created: function() { componentInstance = this.$root }
+      });
+
+      createApp(componentDefinition).mount(this.$refs.xdxd);
+      console.log(componentInstance)
     }
 
+  },
+
+  mounted() {
+    
+    // this.$refs.container.appendChild(ProjectRowInstance.$el);
   }
+
 }
 </script>
 

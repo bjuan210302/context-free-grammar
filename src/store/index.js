@@ -4,10 +4,15 @@ import { Grammar } from '../code/Grammar.js'
 
 export default createStore({
   state: {
-
     stringGrammar: '',
-    testString: ''
+    testString: '',
+    outputs: []
+  },
 
+  getters:{
+    outputs(state){
+      return state.outputs
+    }
   },
 
   mutations: {
@@ -23,7 +28,7 @@ export default createStore({
       const parsedGrammar = parseGrammarInput(state.stringGrammar)
       const grammar = new Grammar(parsedGrammar)
 
-      grammar.generates(state.testString)
+      state.outputs = grammar.generates(state.testString)
     }
   },
   actions: {
