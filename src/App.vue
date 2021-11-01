@@ -1,25 +1,36 @@
 <template>
-  <div class="row">
-    <div class="col-10">
-      <label class="form-label">Grammar</label>
-      <textarea class="form-control" ref="stringGrammar" rows="5">S -> AB|a
-A -> BB|b
-B -> BA|a</textarea>
-      
-      <input class="form-control" ref="testString" type="text" placeholder="Test string">
+<div class="row align-items-center justify-content-center h-100">
+  <div class="row justify-content-center">
 
-      <button type="submit" class="btn btn-primary col-12" @click="test">Test</button>
+      <div class="col-12 py-4">
+        <div class="card">
+          <div class="card-header">
+            <h3>Inputs</h3>
+          </div>
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <span class="input-group-text">String to test</span>
+              <textarea class="form-control" ref="stringGrammar" rows="7" placeholder="S -> AB | b"></textarea>
+            </div>
+            
+            <div class="input-group mb-3">
+              <span class="input-group-text">String to test</span>
+              <input type="text" class="form-control" placeholder="string" ref="testString">
+            </div>
+            
+            <button type="submit" class="btn btn-primary col-12" @click="test">Test</button>  
+          </div>
+        </div>
+      </div>
 
-      <div class="row" ref="xdxd"></div>
+    <div class="col-12 py-4" ref="xdxd"></div>
 
-    </div>
+    
+
   </div>
+
+</div>
   
-  <div class="row">
-    <div class="col-">
-      
-    </div>
-  </div>
 </template>
 
 <script>
@@ -44,16 +55,17 @@ export default {
 
       const outputs = this.$store.getters.outputs
 
-      this.mountTable(this.$refs.testString.value, outputs[1])
+      this.mountTable(this.$refs.testString.value, outputs[0], outputs[1])
     },
 
-    mountTable(strTest, outputMatrixParam){
+    mountTable(strTest, isGeneratedParam, outputMatrixParam){
       var componentInstance
       var componentDefinition = defineComponent({
         extends: defineComponent(CYKTable),
 
         data: () => ({
           testString: strTest,
+          isGenerated: isGeneratedParam,
           outputMatrix: outputMatrixParam
         }),
 
@@ -66,13 +78,16 @@ export default {
 
   },
 
-  mounted() {
-    
-    // this.$refs.container.appendChild(ProjectRowInstance.$el);
-  }
-
 }
 </script>
 
-<style>
+<style scoped>
+  textarea{
+    font-family: 'Courier New';
+  }
+
+  input{
+    font-family: 'Courier New';
+  }
+
 </style>

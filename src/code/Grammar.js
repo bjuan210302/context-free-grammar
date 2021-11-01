@@ -20,7 +20,8 @@ export class Grammar{
         // console.log('OUTPUT');
         // console.log(JSON.stringify(this.outputMatrix, null, '\t'));
 
-        return [true, this.outputMatrix]
+        const isGenerated = this.outputMatrix[0][ this.outputMatrix[0].length-1 ].includes('S')
+        return [isGenerated, this.outputMatrix]
     }
 
     calcFirstColumn(testString){
