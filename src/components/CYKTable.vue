@@ -17,7 +17,7 @@
         
           <tr class="table-bordered" v-for="(n, index) in testString" :key="n"> 
             <th>{{n}}</th>
-            <th v-for="prod in outputMatrix[index]" :key="prod"> {{prod}} </th>
+            <th v-for="prod in outputMatrix[index]" :key="prod"> {{prod?.toString()}} </th>
           </tr>
         </thead>
 

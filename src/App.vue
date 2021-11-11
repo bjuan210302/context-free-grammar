@@ -9,8 +9,8 @@
           </div>
           <div class="card-body">
             <div class="input-group mb-3">
-              <span class="input-group-text">String to test</span>
-              <textarea class="form-control" ref="stringGrammar" rows="7" placeholder="S -> AB | b"></textarea>
+              <span class="input-group-text">Grammar</span>
+              <textarea class="form-control" ref="stringGrammar" rows="8" placeholder="S -> AB | b"></textarea>
             </div>
             
             <div class="input-group mb-3">
