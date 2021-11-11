@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {String with productions separated by a line jump} grammarInput 
+ * @returns An object with the shape KEY: ['PROD', 'DUC', 'TIONS']
+ */
 export function parseGrammarInput(grammarInput){
 
     let productionsString = grammarInput.split(/\r?\n/)
@@ -11,8 +16,6 @@ export function parseGrammarInput(grammarInput){
         productions[parts[0]] = parts[1].split('|')
 
     });
-    
-    // console.log(JSON.stringify(productions, null, '\t'));
 
     return productions;
 }
