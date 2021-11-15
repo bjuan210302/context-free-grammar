@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row items-center h-full sm:rounded-b-md bg-custom-secondary">
+  <div class="flex flex-col sm:flex-row items-center h-full sm:rounded-b-md bg-custom-secondary">
 
     <div class="w-full"> 
       <div class="text-2xl p-3 font-semibold text-white underline">Result:</div>
@@ -9,19 +9,25 @@
     <div class="w-full text-white">
       <table class="flex flex-col place-items-center">
 
-        <div class="flex flex-col m-4 shadow-lg">
+        <div class="flex flex-col m-4 shadow-lg cursor-default">
 
           <div class="flex flex-row">
-            <div class="flex flex-col p-2 rounded-sm px-3 transition duration-200 hover:bg-custom-primary-light font-mono"> j</div>
-            <div class="flex flex-col p-2 rounded-sm px-3 transition duration-200 hover:bg-custom-primary-light font-mono" v-for="(n, index) in testString" :key="n">
-              {{index+1}}
+
+            <div class="flex flex-col">
+              <div class="flex flex-auto w-full p-2 rounded-sm px-3 transition duration-200 hover:bg-custom-secondary-dark font-mono">
+                j
+              </div>
+              <div class="flex flex-auto w-full p-2 rounded-sm px-3 transition duration-200 hover:bg-custom-secondary-dark font-mono"
+              v-for="(n, i) in testString" :key="i">{{n}}</div>
             </div>
-          </div>
-         
-        
-          <div class="flex flex-row" v-for="(n, index) in testString" :key="n">
-            <div class="flex flex-col w-full p-2 rounded-sm px-3 transition duration-200 hover:bg-custom-primary-light font-mono">{{n}}</div>
-            <div class="flex flex-col w-full p-2 rounded-sm px-3 transition duration-200 hover:bg-custom-primary-light font-mono" v-for="prod in outputMatrix[index]" :key="prod"> {{prod?.toString()}} </div>
+
+            <div class="flex flex-col" v-for="(n, i) in testString" :key="i">
+              <div class="flex flex-auto w-full p-2 rounded-sm px-3 transition duration-200 hover:bg-custom-secondary-dark font-mono">{{i+1}}</div>
+              <div class="flex flex-auto w-full p-2 rounded-sm px-3 transition duration-200 hover:bg-custom-secondary-dark font-mono"
+              v-for="(prod, j) in outputMatrix" :key="prod"> 
+                {{ (outputMatrix[j][i]?.toString().length>0) ? outputMatrix[j][i]?.toString() : '*'}}
+                </div>
+            </div>
           </div>
 
         </div>

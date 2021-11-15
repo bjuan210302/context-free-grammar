@@ -1,15 +1,17 @@
 <template>
-  <div class="flex flex-col items-center h-screen bg-custom-bg">
+  <div class="flex flex-col items-center min-h-screen flex-nowrap bg-custom-bg">
 
-    <div class="flex flex-col m-10 w-full sm:w-7/12 items-center">
+    <div class="flex flex-col sm:m-2 lg:m-10 w-full sm:w-7/12 items-center">
 
       <div class="
-      text-md font-mono font-extrabold tracking-widest
-      bg-custom-tab sm:rounded-md
-      self-start my-2 p-1">
-        > Context free grammar</div>
+      text-xs font-mono font-extrabold tracking-widest
+      bg-custom-tab 
+      w-full text-center py-3 px-3 pb-0
+      sm:rounded-lg sm:my-2 sm:w-auto sm:text-left sm:py-1
+      self-start">
+         λ Context Free Grammar</div>
 
-        <div class="flex flex-col w-full shadow-2xl">
+        <div class="flex flex-col w-full sm:shadow-2xl">
           <div class="flex flex-col w-full bg-custom-tab sm:rounded-t-md">
             <InputsTab @sendInfo="test($event)" ref="inputsTab"></InputsTab>
           </div>

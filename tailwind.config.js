@@ -10,7 +10,8 @@ module.exports = {
         'custom-tab': '#EFF2F9',
         'custom-primary': '#6A74C9',
         'custom-primary-light': '#858dd0',
-        'custom-secondary': '#4E4C81'
+        'custom-secondary': '#4E4C81',
+        'custom-secondary-dark': '#3e3c67',
       }
     }
   },
